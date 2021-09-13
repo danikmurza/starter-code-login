@@ -20,6 +20,7 @@ export function store(userName, password) {
 
   localStorage.setItem("userName", userName);
   localStorage.setItem("password", password);
+  userName.style.display = 'none'
 
 }
 
