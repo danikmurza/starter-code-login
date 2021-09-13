@@ -1,13 +1,14 @@
 localStorage.setItem("attempts", 0);
 
 // storing register data: userName and password
-export function store() {
-  if (!userName.value || !password.value) {
+
+export function store(userName, password) {
+  if (!userName || !password) {
     localStorage.clear();
     return;
   }
 
-  const arrayOfValidationErrors = validatePassword(password.value);
+  const arrayOfValidationErrors = validatePassword(password);
 
   if (arrayOfValidationErrors.length > 0) {
     if (arrayOfValidationErrors.length > 0) {
@@ -17,8 +18,9 @@ export function store() {
     return;
   }
 
-  localStorage.setItem("userName", userName.value);
-  localStorage.setItem("password", password.value);
+  localStorage.setItem("userName", userName);
+  localStorage.setItem("password", password);
+
 }
 
 // checking data in the local storage
@@ -56,7 +58,7 @@ export function check(event) {
   }
 }
 
-export function enableButton(button, userName, password, attempts) {
+export function enableButton(button, userName, password) {
   if (!userName || !password) {
     button.disabled = true;
   } else {

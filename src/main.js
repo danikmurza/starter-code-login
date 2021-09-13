@@ -1,7 +1,7 @@
-import "./index.html";
-import "./main.css";
+// import "./index.html";
+// import "./main.css";
 
-import _ from "lodash";
+// import _ from "lodash";
 
 import {
   store,
@@ -16,7 +16,6 @@ import {
 // register button and register field
 const userName = document.getElementById("userName");
 const password = document.getElementById("password");
-
 const registerButton = document.getElementById("rgstr_btn");
 
 userName.addEventListener("change", enableRegisterButton);
@@ -38,10 +37,14 @@ logInPassword.addEventListener("change", enableLogInButton);
 function enableLogInButton() {
   enableButton(loginButton, logInUserName.value, logInPassword.value);
 }
-
+function tran (){
+  store(userName.value, password.value)
+}
 // logic for accessing local storage
-registerButton.addEventListener("click", store);
+registerButton.addEventListener("click", tran);
 loginButton.addEventListener("click", check);
+
+
 
 const iconBtn = document.querySelector(".icon");
 
